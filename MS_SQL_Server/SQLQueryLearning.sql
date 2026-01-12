@@ -40,3 +40,17 @@ foreign key (poke_id)
 	references production.pokemon (id)
 	on delete cascade on update cascade
 );
+
+-- Insert statement
+
+insert into production.pokemon (name, phone, email) 
+	values ('Pikachu', '999-666-333', 'pikachu@gmail.com')
+
+-- Implicitly
+
+insert into production.pokemon values ('Bulbasar', '999-555-333', 'bulbasar@gmail.com') 
+
+-- Excluding some columns if it is nullable
+
+insert into production.pokemon (name, email) 
+	values ('Pikachu', 'pikachu@gmail.com')

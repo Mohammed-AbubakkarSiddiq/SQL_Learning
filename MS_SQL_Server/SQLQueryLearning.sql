@@ -54,3 +54,77 @@ insert into production.pokemon values ('Bulbasar', '999-555-333', 'bulbasar@gmai
 
 insert into production.pokemon (name, email) 
 	values ('Pikachu', 'pikachu@gmail.com')
+
+
+-- update statement
+
+update production.pokemon set name = 'charizard', email = 'charizard@gmail.com' where id = 3
+
+-- select statement
+
+
+-- selecting particular columns with all rows.
+
+select first_name, last_name, phone, email from sales.customers
+
+-- selecting all columns only top 100 rows
+
+select top 100 * from sales.customers 
+
+-- selecting all columns with all rows.
+
+select * from sales.customers 
+
+-- aliasing
+
+select first_name [first name], last_name as [last name], phone phone, email email, city city from sales.customers
+
+
+-- where (filtering)
+
+-- with equal to (=) operator
+
+select * from sales.customers where state = 'ny'
+
+select * from sales.customers where customer_id = 5
+
+-- with not equal to (<>) operator
+
+select * from sales.customers where customer_id <> 5
+
+-- with and operator
+
+select * from sales.customers where city = 'san diego' and customer_id = 91
+
+-- or operator
+
+select * from sales.customers where city = 'san diego' or city = 'los angeles'
+
+-- and operator combiened with or
+
+select * from sales.customers where (state = 'ny' or city = 'los angeles') and phone is not null
+
+-- like operator
+
+-- contains anywhere
+select * from sales.customers where first_name like '%h%'
+
+-- starts with
+select * from sales.customers where first_name like 'p%'
+
+-- ends with
+select * from sales.customers where first_name like '%k'
+
+-- null and not null values
+
+select * from sales.customers where phone is null
+
+select * from sales.customers where phone is not null
+
+-- searching dates
+
+select * from sales.orders where order_date = '01/14/2016'
+
+select * from sales.orders where order_date = parse(('jan-14-2016') as date )
+
+select * from sales.orders where order_date between '01-14-2016' and '01-18-2016'

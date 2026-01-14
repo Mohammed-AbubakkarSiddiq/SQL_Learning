@@ -128,3 +128,23 @@ select * from sales.orders where order_date = '01/14/2016'
 select * from sales.orders where order_date = parse(('jan-14-2016') as date )
 
 select * from sales.orders where order_date between '01-14-2016' and '01-18-2016'
+
+-- Order By (Sorting)
+
+-- Descending
+select * from production.products order by model_year desc
+
+-- Ascending
+select * from production.products order by model_year asc
+
+-- Ordinal (column's number)
+
+select * from production.products order by 5 desc
+
+-- Sorting by alias
+
+select product_id, product_name as [Product Name] from production.products order by [Product Name] desc
+
+-- Sorting by multiple columns
+
+select * from production.products order by model_year, list_price asc

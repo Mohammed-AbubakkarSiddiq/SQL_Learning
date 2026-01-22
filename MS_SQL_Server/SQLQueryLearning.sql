@@ -148,3 +148,21 @@ select product_id, product_name as [Product Name] from production.products order
 -- Sorting by multiple columns
 
 select * from production.products order by model_year, list_price asc
+
+-- Joins
+
+-- Inner join
+
+-- Joining 2 tables
+
+select * from production.products as p inner join production.brands as b on p.brand_id = b.brand_id
+
+-- Joining 3 tables
+
+select * from production.products as p inner join production.brands as b on p.brand_id = b.brand_id 
+	inner join production.categories as c on p.category_id = c.category_id 
+
+-- More clear table format
+
+select product_id, product_name, model_year, list_price, brand_name, category_name from production.products as p inner join production.brands as b on p.brand_id = b.brand_id 
+	inner join production.categories as c on p.category_id = c.category_id 

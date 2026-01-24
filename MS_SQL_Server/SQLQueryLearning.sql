@@ -166,3 +166,16 @@ select * from production.products as p inner join production.brands as b on p.br
 
 select product_id, product_name, model_year, list_price, brand_name, category_name from production.products as p inner join production.brands as b on p.brand_id = b.brand_id 
 	inner join production.categories as c on p.category_id = c.category_id 
+
+
+-- Left outer join or left join
+
+select * from sales.stores as s left outer join sales.staffs as st on s.store_id = st.store_id
+
+-- Right outer join or right join
+
+select * from sales.staffs as s right outer join sales.stores as st on s.store_id = st.store_id
+
+-- Full outer joins
+
+select * from sales.staffs as s full outer join sales.stores as st on s.store_id = st.store_id

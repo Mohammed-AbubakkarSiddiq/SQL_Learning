@@ -179,3 +179,48 @@ select * from sales.staffs as s right outer join sales.stores as st on s.store_i
 -- Full outer joins
 
 select * from sales.staffs as s full outer join sales.stores as st on s.store_id = st.store_id
+
+-- Aggregate functions
+
+-- Sum
+
+select sum(list_price) as TotalPrice from sales.order_items
+
+-- Average
+
+select avg(list_price) as Average from sales.order_items
+
+-- Max
+
+select max(list_price) as Maximum from sales.order_items
+
+-- Min
+
+select min(list_price) as Minimum from sales.order_items
+
+-- Count
+
+select count(*) as [Row Count] from sales.order_items
+
+-- We can also have multiple aggregate function in select statement
+
+select
+	sum(list_price) as Sum,
+	avg(list_price) as Average,
+	max(list_price) as Maximum,
+	min(list_price) as Minimum
+	 from sales.order_items
+
+-- Group By
+
+select category_id, avg(list_price) as Average from production.products group by category_id
+
+-- Group by multiple columns
+
+select category_id, model_year, avg(list_price) as Average from production.products group by category_id, model_year
+
+-- Having
+
+select category_id, avg(list_price) as Average from production.products group by category_id 
+	having avg(list_price) > 700
+
